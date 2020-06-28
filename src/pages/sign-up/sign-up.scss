@@ -1,0 +1,87 @@
+@import '../../consts/consts';
+
+.signup-wrapper {
+  //filter: blur(2px) brightness(0.4);
+  background-color: $bg-primary-color;
+  min-height: 100vh;
+  padding: 34px 15px;
+
+  @include responsive($tablet-width) {
+    padding: 45px 150px;
+  }
+  @include responsive($tablet-width) {
+    padding: 75px 270px;
+  }
+
+  .title {
+    @extend %h1-mobile-font;
+    white-space: nowrap;
+
+    @include responsive($tablet-width) {
+      font-size: $h1-tablet-font;
+      line-height: $h1-tablet-line;
+    }
+    @include responsive($desktop-width) {
+      font-size: $h1-desktop-font;
+      line-height: $h1-desktop-line;
+    }
+  }
+
+  .subtitle {
+    @extend %p-font;
+    color: $font-secondary-color;
+    margin-top: 12px;
+    text-align: center;
+  }
+
+  .label {
+    display: block;
+    text-align: left;
+    font-weight: 600;
+    margin-top: 25px;
+    color: #212529;
+  }
+
+  .input {
+    padding:5.5px 10px;
+    border-radius: 4px;
+    border: 1.5px solid #b2b9c0;
+    width: 100%;
+    margin-top: 10px;
+    @extend %p-font;
+  }
+
+  .positions-container {
+    .position {
+      display: flex;
+      align-items: center;
+      input {
+        height: 16px;
+        width: 16px;
+      }
+
+      .position-label {
+        margin-left: 10px;
+
+      }
+    }
+  }
+
+  .photo {
+    border: 1.5px solid #b2b9c0;
+    border-radius: 4px;
+    padding:5.5px 10px;
+    margin-top: 10px;
+    width: 100%;
+    color: $font-secondary-color;
+    @extend %p-font;
+  }
+
+  .hint {
+    font-size: 12px;
+    line-height: 12px;
+    text-align: left;
+    margin-top: 5px;
+    color: red;
+  }
+}

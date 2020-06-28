@@ -1,0 +1,25 @@
+@import '../../consts/consts';
+
+.main-button {
+  width: 210px;
+  min-height: 38px;
+  height: 38px;
+  border: 0px solid #fff;
+  color: $bg-primary-color;
+  font-weight: 800;
+  border-radius: 4px;
+  background-color: $primary-color;
+  margin-top: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+  font-size: 16px;
+  @include responsive($tablet-width) {
+    margin-left: 0;
+    margin-top: 33px;
+  }
+  @include responsive($desktop-width) {
+    margin-left: 0;
+    margin-top: 31px;
+  }
+}

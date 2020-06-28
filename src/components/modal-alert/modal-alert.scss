@@ -1,0 +1,77 @@
+@import '../../consts/consts';
+
+.modal-wrapper {
+  opacity: 1;
+  visibility: visible;
+  z-index: 999;
+  border-radius: 4px;
+  border: 1px solid black;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 190px;
+  width: 300px;
+  margin-left: -150px;
+  margin-top: -95px;
+  padding: 15px;
+
+
+  @include responsive($tablet-width) {
+    height: 190px;
+    width: 394px;
+    margin-left: -197px;
+  }
+  background-color: $bg-primary-color;
+
+  .modal-title-wrapper {
+    height: 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eef0f2;
+
+    .alert-title {
+      @extend %h2-all-font;
+    }
+    //close button
+    .close {
+      position: relative;
+      right: 20px;
+      width: 16px;
+      height: 16px;
+      opacity: 0.3;
+      &:hover {
+        opacity: 1;
+      }
+
+      &:before, &:after {
+        position: absolute;
+        left: 15px;
+        content: ' ';
+        height: 16px;
+        width: 2px;
+        background-color: #333;
+      }
+      &:before {
+        transform: rotate(45deg);
+      }
+      &:after {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  .modal-description-wrapper {
+    height: 55px;
+    border-bottom: 1px solid #eef0f2;
+    .alert-description {
+      @extend %p-font;
+    }
+  }
+
+  .modal-confirm-wrapper {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+}

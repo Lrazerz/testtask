@@ -1,0 +1,54 @@
+@import "../../consts/_consts.scss";
+
+.main-header {
+  //background-color: $bg-primary-color;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 15px;
+  z-index: 900;
+
+  @include responsive($tablet-width) {
+    padding: 0px 30px;
+  }
+
+  height: 40px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  max-width: 1024px; /*todo 1170*/
+
+  .nav-list {
+    display: none;
+  }
+
+  @include responsive($tablet-width) {
+    height: 60px;
+  }
+  @include responsive($desktop-width) {
+    .nav {
+      width: 445px;
+      .menu-hamburger {
+        display: none;
+      }
+      .nav-list {
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(5, auto);
+        grid-template-rows: 1fr;
+        column-gap: 25px;
+        .nav-list__item {
+          line-height: 60px;
+          font-size: 14px;
+          font-weight: 500;
+          grid-column: auto;
+          cursor: pointer;
+        }
+        li: {
+          display: block;
+        }
+      }
+    }
+  }
+}

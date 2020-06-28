@@ -1,0 +1,25 @@
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: OpenSans;
+}
+
+@font-face {
+  font-family: 'OpenSans';
+  /*func local() - look for on the user-card's computer*/
+  src: local('OpenSans'), url("./fonts/OpenSans-Regular.ttf") format('truetype');
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+

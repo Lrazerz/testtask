@@ -1,0 +1,30 @@
+@import '../../consts/consts';
+
+.usercard-container {
+  width: 216px;
+  height: 220px;
+  margin: auto;
+  margin-top: 35px;
+  overflow: hidden;
+
+  .avatar-container {
+    width: 70px;
+    height: 70px;
+    margin: auto;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .description-text {
+    @extend %p-font;
+    color: $font-secondary-color;
+  }
+
+  .username {
+    @extend %h2-all-font;
+    margin-top: 15px;
+    margin-bottom: 8px;
+  }
+
+
+}

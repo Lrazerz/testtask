@@ -1,0 +1,13 @@
+@import "./consts/_consts.scss";
+
+.App {
+  text-align: center;
+  min-height: 100vh;
+  padding-top: 40px;
+  max-width: 1024px;
+  margin: auto;
+
+  @include responsive($tablet-width) {
+    padding-top: 60px;
+  }
+}

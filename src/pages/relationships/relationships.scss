@@ -1,0 +1,45 @@
+@import '../../consts/consts';
+
+.container {
+  padding: 15px;
+  padding-top: 36px;
+  background-color: $bg-secondary-color;
+
+  @include responsive($tablet-width) {
+    padding-top: 54px;
+  }
+
+  .title {
+    @extend %h1-mobile-font;
+    @include responsive($tablet-width) {
+      font-size: $h1-tablet-font;
+      line-height: $h1-tablet-line;
+    }
+    @include responsive($desktop-width) {
+      font-size: $h1-desktop-font;
+      line-height: $h1-desktop-line;
+    }
+  }
+
+  .subtitle {
+    @extend %p-font;
+    color: $font-secondary-color;
+    margin-top: 10px;
+    @include responsive($tablet-width) {
+      margin-top: 20px;
+    }
+  }
+
+  .users-container {
+
+    @include responsive($tablet-width) {
+      margin-top:40px;
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: minmax(220px, auto);
+      grid-row-gap: 79px;
+    }
+  }
+
+}

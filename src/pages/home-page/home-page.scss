@@ -1,0 +1,91 @@
+@import "../../consts/_consts.scss";
+
+.wrapper {
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  padding: 0 15px;
+
+  @include responsive($tablet-width) {
+    padding: 0 30px;
+  }
+
+
+  .heading-container {
+    height: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    @include responsive($tablet-width) {
+      height: 190px;
+    }
+    @include responsive($desktop-width) {
+      height: 270px;
+    }
+
+    &:last-child {
+      justify-content: flex-start;
+    }
+
+    .text {
+      color: $bg-primary-color;
+      text-align: center;
+
+      @include responsive($tablet-width) {
+        text-align: left;
+      }
+    }
+
+    .header-text {
+      @extend %h1-mobile-font;
+
+      @include responsive($tablet-width) {
+        font-size: $h1-tablet-font;
+        line-height: $h1-tablet-line;
+      }
+
+      @include responsive($desktop-width) {
+        font-size: $h1-desktop-font;
+        line-height: $h1-desktop-line;
+      }
+    }
+
+    .description-text {
+      @extend %p-font;
+      margin-top: 20px;
+      @include responsive($tablet-width) {
+        margin-top: 30px;
+      }
+      @include responsive($desktop-width) {
+        margin-top: 22px;
+      }
+      color:$bg-primary-color
+    }
+
+    .signup-button {
+      width: 210px;
+      min-height: 38px;
+      height: 38px;
+      border: 0px solid #fff;
+      color: $bg-primary-color;
+      font-weight: 800;
+      border-radius: 4px;
+      background-color: $primary-color;
+      margin-top: 25px;
+      margin-left: auto;
+      margin-right: auto;
+      cursor: pointer;
+      font-size: 16px;
+      @include responsive($tablet-width) {
+        margin-left: 0;
+        margin-top: 33px;
+      }
+      @include responsive($desktop-width) {
+        margin-left: 0;
+        margin-top: 31px;
+      }
+
+    }
+  }
+}

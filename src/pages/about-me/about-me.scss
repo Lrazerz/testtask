@@ -1,0 +1,102 @@
+@import "../../consts/_consts.scss";
+
+.full-wrapper {
+  padding: 0px 15px;
+  @include responsive($tablet-width) {
+    padding: 0 30px;
+  }
+  height: 100vh;
+
+  .title-container {
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    @include responsive($tablet-width) {
+      height: 100px;
+    }
+    @include responsive($desktop-width) {
+      height: 147px;
+    }
+
+    .title {
+      @extend %h1-mobile-font;
+      @include responsive($tablet-width) {
+        font-size: $h1-tablet-font;
+        line-height: $h1-tablet-line;
+      }
+      @include responsive($desktop-width) {
+        font-size: $h1-desktop-font;
+        line-height: $h1-desktop-line;
+      }
+    }
+  }
+
+  .main-content-container {
+    margin-top: 40px;
+    height: 40%;
+
+    @include responsive($tablet-width) {
+      height: 40%;
+    }
+
+
+    @include responsive($tablet-width) {
+      display: flex;
+    }
+
+    .man-image {
+      width: 330px;
+      max-width: 85%;
+
+      @include responsive($tablet-width) {
+        width: 250px;
+        max-width: 80%;
+      }
+      @include responsive($desktop-width) {
+        width: 390px;
+        margin-top: 30px;
+      }
+    }
+
+    .content-without-image {
+
+      margin-top: 30px; //wtf
+
+      @include responsive($tablet-width) {
+        margin-left: 28px;
+        margin-top: 27px;
+      }
+
+      @include responsive($desktop-width) {
+        margin-left: 25px;
+        margin-top: 27px;
+      }
+
+      .subtitle {
+        @extend %h2-all-font;
+        @include responsive($tablet-width) {
+          text-align: left;
+        }
+      }
+
+      .description {
+        @extend %p-font;
+        text-align: left;
+        margin-top: 22px;
+      }
+
+      .signup-button {
+        font-weight: 800;
+        color: $primary-color;
+        text-align: center;
+        margin-bottom: 30px;
+        margin-top: 28px;
+        @include responsive($tablet-width) {
+          text-align: left;
+        }
+      }
+    }
+  }
+}

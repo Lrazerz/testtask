@@ -1,0 +1,53 @@
+/*device-sizes*/
+$mob-width: 360px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+/*font-preferences*/
+%p-font {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+%h1-desktop-font {
+  font-size: 50px;
+  line-height: 54px;
+}
+
+%h1-tablet-font {
+  font-size: 40px;
+  line-height: 44px;
+}
+
+%h1-mobile-font {
+  font-size: 30px;
+  line-height: 34px;
+}
+
+%h2-all-font {
+  font-size: 24px;
+  line-height: 29px;
+}
+
+/*because can't extend in media queries*/
+$h1-desktop-font: 50px;
+$h1-desktop-line: 54px;
+
+$h1-tablet-font: 40px;
+$h1-tablet-line: 44px;
+
+
+/*colors*/
+$primary-color: #ef5b4c;
+$secondary-color: #007bff;
+$bg-primary-color: #fff;
+$bg-secondary-color: #f9f9f3;
+$font-secondary-color: #7f7e7d;
+
+
+/*mixins*/
+@mixin responsive($minWidth) {
+  @media (min-width: $minWidth) {
+    @content
+  }
+};
