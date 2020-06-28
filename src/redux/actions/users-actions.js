@@ -41,7 +41,10 @@ const _setRegisteredUserError = (error) => {
 }
 
 export const fetchUsers = (count = 6, page = 1) => {
-  return async dispatch => {
+  return async (dispatch, getState) => {
+    if(getState().users.length > 0 && page === 1) {
+      return;
+    }
     try {
       dispatch(_setUsersLoading(true));
 
