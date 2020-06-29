@@ -1,8 +1,8 @@
 @import '../../consts/consts';
 
 .usercard-container {
-  width: 216px;
-  height: 220px;
+  width: 200px;
+  max-height: 290px;
   margin: auto;
   margin-top: 35px;
   overflow: hidden;
@@ -15,15 +15,26 @@
     overflow: hidden;
   }
 
-  .description-text {
+  .description-container {
     @extend %p-font;
     color: $font-secondary-color;
+    margin-top:4px; /*coz lineheight 24px, font-size 16px*/
+    .description-text {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
   }
 
   .username {
     @extend %h2-all-font;
-    margin-top: 15px;
-    margin-bottom: 8px;
+    margin-top: 15px; /*coz lineheight 29px, font-size 24px*/
+    margin-bottom: 9px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    -webkit-box-orient: vertical;
   }
 
 

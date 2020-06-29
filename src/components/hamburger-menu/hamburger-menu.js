@@ -1,13 +1,14 @@
 import React from "react";
 import './hamburger-menu.scss';
 import Logo from '../../images/logo.svg';
-import {useHistory} from "react-router-dom";
+import {useHistory, useLocation} from "react-router-dom";
 
-const HamburgerMenuSection = ({navigationItems, onMenuClick}) => {
+const HamburgerMenuSection = ({navigationItems, onMenuClick, pathName}) => {
   return (
     <ul className="nav-list">
       {navigationItems.map(({title, link}) => (
-        <li className="nav-list__item" onClick={() => onMenuClick(link)}>
+        <li className="nav-list__item" onClick={() => onMenuClick(link)}
+            style={pathName === link ? {color: '#007bff'} : null}>
           {title}
         </li>
       ))}
@@ -17,6 +18,7 @@ const HamburgerMenuSection = ({navigationItems, onMenuClick}) => {
 
 const HamburgerMenu = (props) => {
   const history = useHistory();
+  const {pathname} = useLocation();
 
   const navigationItems = [
     {
@@ -89,11 +91,15 @@ const HamburgerMenu = (props) => {
   return (
     <nav className="main-nav">
       <div className="logo-container">
-        <img className="logo" src={Logo} width="136" height="20" alt="testtask logo" onClick={() => navigateHandler('/')}/>
+        <img className="logo" src={Logo} width="136" height="20" alt="testtask logo"
+             onClick={() => navigateHandler('/')}/>
       </div>
-      <HamburgerMenuSection navigationItems={navigationItems.slice(0, 5)} onMenuClick={navigateHandler}/>
-      <HamburgerMenuSection navigationItems={navigationItems.slice(5, 10)} onMenuClick={navigateHandler}/>
-      <HamburgerMenuSection navigationItems={navigationItems.slice(10, 15)} onMenuClick={navigateHandler}/>
+      <HamburgerMenuSection navigationItems={navigationItems.slice(0, 5)}
+                            onMenuClick={navigateHandler} pathName={pathname}/>
+      <HamburgerMenuSection navigationItems={navigationItems.slice(5, 10)}
+                            onMenuClick={navigateHandler} pathName={pathname}/>
+      <HamburgerMenuSection navigationItems={navigationItems.slice(10, 15)}
+                            onMenuClick={navigateHandler} pathName={pathname}/>
     </nav>
   )
 }

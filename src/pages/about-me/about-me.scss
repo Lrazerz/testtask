@@ -5,7 +5,6 @@
   @include responsive($tablet-width) {
     padding: 0 30px;
   }
-  height: 100vh;
 
   .title-container {
     height: 70px;
@@ -36,15 +35,20 @@
   .main-content-container {
     margin-top: 40px;
     height: 40%;
+    width: 360px;
+    margin-left: auto;
+    margin-right: auto;
 
     @include responsive($tablet-width) {
       height: 40%;
-    }
-
-
-    @include responsive($tablet-width) {
+      width: 768px;
       display: flex;
     }
+    @include responsive($desktop-width) {
+      height: 40%;
+      width: 1024px;
+    }
+
 
     .man-image {
       width: 330px;
@@ -61,8 +65,7 @@
     }
 
     .content-without-image {
-
-      margin-top: 30px; //wtf
+      margin-top: 30px;
 
       @include responsive($tablet-width) {
         margin-left: 28px;
@@ -81,10 +84,18 @@
         }
       }
 
-      .description {
-        @extend %p-font;
-        text-align: left;
-        margin-top: 22px;
+      .description-container {
+        margin: auto;
+        width: 360px;
+        @include responsive($tablet-width) {
+          width: auto;
+        }
+
+        .description {
+          @extend %p-font;
+          text-align: left;
+          margin-top: 22px;
+        }
       }
 
       .signup-button {
@@ -93,6 +104,11 @@
         text-align: center;
         margin-bottom: 30px;
         margin-top: 28px;
+
+        &:hover {
+          color: #d24335;
+        }
+
         @include responsive($tablet-width) {
           text-align: left;
         }

@@ -1,7 +1,6 @@
 @import '../../consts/consts';
 
 .signup-wrapper {
-  //filter: blur(2px) brightness(0.4);
   background-color: $bg-primary-color;
   min-height: 100vh;
   padding: 34px 15px;
@@ -43,7 +42,7 @@
   }
 
   .input {
-    padding:5.5px 10px;
+    padding: 5.5px 10px;
     border-radius: 4px;
     border: 1.5px solid #b2b9c0;
     width: 100%;
@@ -55,6 +54,7 @@
     .position {
       display: flex;
       align-items: center;
+
       input {
         height: 16px;
         width: 16px;
@@ -70,7 +70,7 @@
   .photo {
     border: 1.5px solid #b2b9c0;
     border-radius: 4px;
-    padding:5.5px 10px;
+    padding: 5.5px 10px;
     margin-top: 10px;
     width: 100%;
     color: $font-secondary-color;

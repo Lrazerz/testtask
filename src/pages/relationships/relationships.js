@@ -20,7 +20,7 @@ const Relationships = () => {
   const totalPages = useSelector(state => state.totalPages);
 
   useEffect(() => {
-    if(width > 767) {
+    if (width > 767) {
       setCount(6);
     } else {
       setCount(3);
@@ -28,7 +28,7 @@ const Relationships = () => {
   })
 
   useEffect(() => {
-    if(count != 0) {
+    if (count != 0) {
       dispatch(fetchUsers(count, page));
     }
   }, [dispatch, count, page, fetchUsers])
@@ -39,8 +39,8 @@ const Relationships = () => {
 
   const showMoreButton = totalPages != page;
 
-  if(usersLoading) {
-    return (<Spinner />);
+  if (usersLoading) {
+    return (<Spinner/>);
   }
 
   return (
@@ -48,9 +48,10 @@ const Relationships = () => {
       <p className="title">Our cheerful users</p>
       <p className="subtitle">Attention! Sorting users by registration date</p>
       <div className="users-container">
-        {users && users.map(user => (<UserCard id={user.id} user={user} />))}
-         </div>
-      {showMoreButton && (<MainButton onClick={showMoreClickHandler} styles={{marginTop: '10px'}}>Show more</MainButton>)}
+        {users && users.map(user => (<UserCard key={user.id} id={user.id} user={user}/>))}
+      </div>
+      {showMoreButton && (
+        <MainButton onClick={showMoreClickHandler} styles={{marginTop: '10px'}}>Show more</MainButton>)}
     </div>
   );
 };

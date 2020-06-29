@@ -1,5 +1,7 @@
-import {SET_USERS, SET_USERS_LOADING, SET_USERS_ERROR, SET_POSITIONS, SET_POSITIONS_LOADING,
-  SET_POSITIONS_ERROR, USER_REGISTERED, USER_REGISTERED_ERROR} from '../actions/users-actions';
+import {
+  SET_USERS, SET_USERS_LOADING, SET_USERS_ERROR, SET_POSITIONS, SET_POSITIONS_LOADING,
+  SET_POSITIONS_ERROR, USER_REGISTERED, USER_REGISTERED_ERROR, FORCE_RESET_USERS
+} from '../actions/users-actions';
 
 const initialState = {
   users: [],
@@ -16,7 +18,7 @@ const initialState = {
 }
 
 const usersReducer = (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case SET_USERS: {
       return {
         ...state,
@@ -34,6 +36,12 @@ const usersReducer = (state = initialState, action) => {
       return {
         ...state,
         usersError: action.error,
+      }
+    }
+    case FORCE_RESET_USERS: {
+      return {
+        ...state,
+        users: [],
       }
     }
     case SET_POSITIONS: {

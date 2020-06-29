@@ -5,6 +5,7 @@ const _basePath = 'https://frontend-test-assignment-api.abz.agency/api/v1';
 export const SET_USERS = "SET_USERS";
 export const SET_USERS_LOADING = "SET_USERS_LOADING";
 export const SET_USERS_ERROR = "SET_USERS_ERROR";
+export const FORCE_RESET_USERS = "FORCE_RESET_USERS";
 
 export const SET_POSITIONS = "SET_POSITIONS";
 export const SET_POSITIONS_LOADING = "SET_POSITIONS_LOADING";
@@ -21,6 +22,10 @@ const _setUsersLoading = (loading) => {
 }
 const _setUsersError = (error) => {
   return {type: SET_USERS_ERROR, error};
+}
+
+const _forceResetUsers = (users) => {
+  return {type: FORCE_RESET_USERS, users};
 }
 
 const _setPositions = (positions) => {
@@ -40,28 +45,34 @@ const _setRegisteredUserError = (error) => {
   return {type: USER_REGISTERED_ERROR, error};
 }
 
+const _fetchResource = async (link) => {
+  const response = await fetch(`${_basePath}${link}`);
+
+  if (!response.ok) {
+    throw new Error('Something went wrong while fetching data');
+  }
+
+  const resData = await response.json();
+
+  if (!resData.success) {
+    throw new Error('Server error');
+  }
+
+  return resData;
+}
+
 export const fetchUsers = (count = 6, page = 1) => {
   return async (dispatch, getState) => {
-    if(getState().users.length > 0 && page === 1) {
+    if (getState().users.length > 0 && page === 1) {
       return;
     }
     try {
       dispatch(_setUsersLoading(true));
 
-      const response = await fetch(`${_basePath}/users?count=${count}&page=${page}`)
+      const resData = await _fetchResource(`/users?count=${count}&page=${page}`);
 
-      if (!response.ok) {
-        throw new Error('Something went wrong while fetching data');
-      }
-
-      const resData = await response.json();
-
-      if(!resData.success) {
-        throw new Error('Server error');
-      }
-
-      const users = resData.users.map(user => new User(user.id,user.name,user.email,user.phone,user.position,
-        user.position_id,user.registration_timestamp,user.photo));
+      const users = resData.users.map(user => new User(user.id, user.name, user.email, user.phone, user.position,
+        user.position_id, user.registration_timestamp, user.photo));
 
       dispatch(_setUsers(users, resData.total_pages));
     } catch (err) {
@@ -77,18 +88,7 @@ export const fetchPositions = () => {
     try {
       dispatch(_setPositionsLoading(true));
 
-      const response = await fetch(`${_basePath}/positions`)
-
-      if (!response.ok) {
-        throw new Error('Something went wrong while fetching data');
-      }
-
-      const resData = await response.json();
-      console.log(resData);
-
-      if(!resData.success) {
-        throw new Error('Server error');
-      }
+      const resData = await _fetchResource(`/positions`);
 
       const positions = resData.positions.map(position => new Position(position.id, position.name));
 
@@ -106,34 +106,27 @@ export const signupUser = (formData) => {
     try {
       dispatch(_setPositionsLoading(true));
 
-      let response = await fetch(`${_basePath}/token`)
+      let resData = await _fetchResource(`/token`)
 
-      if (!response.ok) {
-        throw new Error('Something went wrong while fetching data');
-      }
-
-      let resData = await response.json();
-      console.log(resData);
-
-      if(!resData.success) {
+      if (!resData.success) {
         throw new Error('Server error');
       }
 
       const token = resData.token;
 
-      response = await fetch(`${_basePath}/users`, {
+      const response = await fetch(`${_basePath}/users`, {
         method: "POST",
         body: formData,
-        headers: { "Token": token}});
+        headers: {"Token": token}
+      });
 
       if (!response.ok) {
         throw new Error('Something went wrong while fetching data');
       }
 
       resData = await response.json();
-      console.log(resData);
 
-      if(!resData.success) {
+      if (!resData.success) {
         throw new Error('Server error');
       }
 
@@ -144,5 +137,11 @@ export const signupUser = (formData) => {
     } finally {
       dispatch(_setPositionsLoading(false));
     }
+  }
+}
+
+export const forceResetUsers = () => {
+  return dispatch => {
+    dispatch(_forceResetUsers());
   }
 }

@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
-import {useHistory} from 'react-router-dom';
+import {useHistory, useLocation} from 'react-router-dom';
 import Logo from '../../images/logo.svg';
 import MenuHamburger from '../../images/menu-icon.svg';
 import './header.scss';
 
 const Header = (props) => {
   const history = useHistory();
+  //with history.location won't update route dynamically
+  const {pathname} = useLocation();
 
   const menuClickHandler = () => {
     props.onMenuClick();
@@ -24,11 +26,24 @@ const Header = (props) => {
              alt="navigation menu icon"
              onClick={menuClickHandler}/>
         <ul className="nav-list">
-          <li className="nav-list__item" onClick={() => navigateHandler('/aboutme')}>About me</li>
-          <li className="nav-list__item" onClick={() => navigateHandler('/relationships')}>Relationships</li>
-          <li className="nav-list__item" onClick={() => navigateHandler('/signup')}>Requirements</li>
-          <li className="nav-list__item" onClick={() => navigateHandler('/signup')}>Users</li>
-          <li className="nav-list__item" onClick={() => navigateHandler('/signup')}>Sign Up</li>
+          <li className="nav-list__item" onClick={() => navigateHandler('/aboutme')}
+              style={pathname === '/aboutme' ? {color: '#007bff'} : null}>
+            About me
+          </li>
+          <li className="nav-list__item" onClick={() => navigateHandler('/relationships')}
+              style={pathname === '/relationships' ? {color: '#007bff'} : null}>
+            Relationships
+          </li>
+          <li className="nav-list__item" onClick={() => navigateHandler('/signup')}>
+            Requirements
+          </li>
+          <li className="nav-list__item" onClick={() => navigateHandler('/signup')}>
+            Users
+          </li>
+          <li className="nav-list__item" onClick={() => navigateHandler('/signup')}
+              style={pathname === '/signup' ? {color: '#007bff'} : null}>
+            Sign Up
+          </li>
         </ul>
       </nav>
     </header>

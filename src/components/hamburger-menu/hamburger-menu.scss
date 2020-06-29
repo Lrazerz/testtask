@@ -1,13 +1,27 @@
 @import "../../consts/_consts.scss";
 
+@keyframes slidein {
+  from {
+    left: -200px;
+    width: 0%;
+  }
+
+  to {
+    left: 0px;
+    width: 80%;
+  }
+}
+
 .main-nav {
+  animation-duration: .3s;
+  animation-name: slidein;
+
   position: absolute;
   top: 0px;
   left: 0px;
   width: 290px;
   background-color: $bg-primary-color;
   padding: 0 15px;
-  /*todo animation*/
   z-index: 999;
 
   @include responsive($tablet-width) {
@@ -18,6 +32,10 @@
     height: 40px;
     padding-top: 10px;
     border-bottom: 1px solid #e9e9e9;
+
+    @include responsive($tablet-width) {
+      height: 60px;
+    }
 
     .logo {
       display: block;

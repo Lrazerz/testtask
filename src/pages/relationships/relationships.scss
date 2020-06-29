@@ -33,12 +33,12 @@
   .users-container {
 
     @include responsive($tablet-width) {
-      margin-top:40px;
+      margin-top: 40px;
       display: grid;
 
       grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: minmax(220px, auto);
-      grid-row-gap: 79px;
+      grid-template-rows: minmax(220px, 290px);
+      grid-row-gap: 49px;
     }
   }
 
