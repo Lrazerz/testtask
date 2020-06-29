@@ -59,7 +59,6 @@ page PSD mockup into HTML5/CSS3.`);
           </p>
         </div>
       </div>
-
     </div>
   );
 };
