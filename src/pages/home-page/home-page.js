@@ -1,14 +1,4 @@
 import React, {useState, useEffect} from "react";
-//todo delete
-// import BannerMobile from '../../images/banner-360.png';
-// import BannerMobile2x from '../../images/banner-360-2x.png';
-// import BannerMobile3x from '../../images/banner-360-3x.png';
-// import BannerTablet from '../../images/banner-768.png';
-// import BannerTablet2x from '../../images/banner-768-2x.png';
-// import BannerTablet3x from '../../images/banner-768-3x.png';
-// import BannerDesktop from '../../images/banner-1024.png';
-// import BannerDesktop2x from '../../images/banner-1024-2x.png';
-// import BannerDesktop3x from '../../images/banner-1024-3x.png';
 import './home-page.scss';
 import useWindowDimensions from "../../hooks/use-window-dimensions";
 import {useHistory} from 'react-router-dom';

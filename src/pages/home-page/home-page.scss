@@ -11,36 +11,36 @@
   background-repeat: no-repeat;
 
   /* images */
-  background-image: url(../../images/banner-360.png);
+  background-image: url(../../images/banner-360.webp);
 
   @media(min-resolution: 1.5dppx) {
-    background-image: url(../../images/banner-360-2x.png);
+    background-image: url(../../images/banner-360-2x.webp);
   }
 
   @media(min-resolution: 2.5dppx) {
-    background-image: url(../../images/banner-360-3x.png);
+    background-image: url(../../images/banner-360-3x.webp);
   }
 
   @include responsive($tablet-width) {
     height: 500px;
     padding: 0 30px;
-    background-image: url(../../images/banner-768.png);
+    background-image: url(../../images/banner-768.webp);
     @media (min-resolution: 1.5dppx) {
-      background-image: url(../../images/banner-768-2x.png);
+      background-image: url(../../images/banner-768-2x.webp);
     }
     @media(min-resolution: 2.5dppx) {
-      background-image: url(../../images/banner-360-3x.png);
+      background-image: url(../../images/banner-360-3x.webp);
     }
   }
   @include responsive($desktop-width) {
     height: 600px;
     padding: 0 30px;
-    background-image: url(../../images/banner-1024.png);
+    background-image: url(../../images/banner-1024.webp);
     @media (min-resolution: 1.5dppx) {
-      background-image: url(../../images/banner-1024-2x.png);
+      background-image: url(../../images/banner-1024-2x.webp);
     }
     @media(min-resolution: 2.5dppx) {
-      background-image: url(../../images/banner-1024-3x.png);
+      background-image: url(../../images/banner-1024-3x.webp);
     }
   }
 
